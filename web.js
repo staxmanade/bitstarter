@@ -9,7 +9,7 @@ app.configure(function () {
 });
 
 app.get('/', function(request, response) {
-  fs.readFile("./public/index.html", function(err, data) {
+  fs.readFile("./index.html", function(err, data) {
     if(err) {
       response.send(err);
       return;
