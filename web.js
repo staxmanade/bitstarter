@@ -3,8 +3,13 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
+app.configure(function () {
+    app.use('/media', express.static(__dirname + '/media'));
+    app.use(express.static(__dirname + '/public'));
+});
+
 app.get('/', function(request, response) {
-  fs.readFile("./index.html", function(err, data) {
+  fs.readFile("./public/index.html", function(err, data) {
     if(err) {
       response.send(err);
       return;
